@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-container
+    restart: always
+    ports:
+      - "3306:3306"
+#The environment part of the docker compose file is where we setup user names and passwords for the app that we are setting up
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+#The volumes key defines the storage mapping for the container. It ensures that certain data persists even if the container is stopped or recreated.
+    volumes:
+      - secure_data:/var/lib/mysql
+    networks:
+      - mariadb_network
+
+volumes:
+  secure_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /var/lib/docker-volumes/mariadb_secure_data
+      o: bind
+
+networks:
+  mariadb_network:
