@@ -6,6 +6,8 @@ It exposes the WSGI callable as a module-level variable named ``application``.
 For more information on this file, see
 https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 """
+#WSGI is basically the universal
+# adapter that lets your Django app talk to any web server
 
 import os
 
