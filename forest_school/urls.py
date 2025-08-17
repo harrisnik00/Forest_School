@@ -16,7 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
+import traceback
+
+def debug_view(request):
+    try:
+        return HttpResponse("<h1>Debug Test</h1><p>Django is working!</p>")
+    except Exception as e:
+        return HttpResponse(f"Error: {str(e)}<br><pre>{traceback.format_exc()}</pre>")
+
+def index(request):
+    return HttpResponse("<h1>Home Page</h1><p>Welcome to Forest School!</p>")
+
+def about(request):
+    return HttpResponse("<h1>About Page</h1><p>Learn about our forest school!</p>")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name="index"),           # Changed from 'index/' to ''
+    path('about/', about, name="about"),
+    path('debug/', debug_view, name='debug'),
 ]
