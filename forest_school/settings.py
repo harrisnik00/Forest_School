@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY ='mm&1_k-#@k7&th%#0ie3ei1#0i%3n&@()5fg#z0-j1ps#aky10'
+SECRET_KEY =os.environ.get('DJANGO_SECRET_KEY')
     #(os.environ.get("mm&1_k-#@k7&th%#0ie3ei1#0i%3n&@()5fg#z0-j1ps#aky10"))
 
 
@@ -88,12 +89,12 @@ WSGI_APPLICATION = 'forest_school.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'forestcydb',
-        'USER': 'harrisdjango',
-        'PASSWORD': '!lightsaber!',
-        'HOST' : 'localhost',
-        'PORT':'3306'
+'ENGINE': os.environ.get("DATABASE_ENGINE"),
+        'NAME': os.environ.get("DATABASE_NAME"),
+        'USER': os.environ.get("DATABASE_USER"),
+        'PASSWORD': os.environ.get("DATABASE_PASSWORD"),
+        'HOST': os.environ.get("DATABASE_HOST", "mysql-container"),
+        'PORT': os.environ.get("DATABASE_PORT", "3306"),
     }
 }
 
