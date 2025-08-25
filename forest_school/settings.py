@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY =os.environ.get('DJANGO_SECRET_KEY')
-    #(os.environ.get("mm&1_k-#@k7&th%#0ie3ei1#0i%3n&@()5fg#z0-j1ps#aky10"))
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -44,6 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'pages',
+    'gallery',
+    'news',
+    'programs',
+    'volunteers',
+    'projects',
+    'media',
 ]
 
 MIDDLEWARE = [
