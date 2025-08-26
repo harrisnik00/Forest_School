@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib import admin
 from django.utils.html import format_html, strip_tags
-from .models import NewsCategory, NewsPost
+from .models import NewsCategory , NewsPost
 
 
 @admin.register(NewsCategory)
