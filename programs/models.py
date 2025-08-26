@@ -4,6 +4,7 @@ from ckeditor.fields import RichTextField
 from django.core.validators import RegexValidator
 class Camp(models.Model):
     """Holiday camps and special programs"""
+    
     CAMP_SEASONS = [
         ('easter', 'Easter Camp'),
         ('summer', 'Summer Camp'),
