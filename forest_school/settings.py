@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 load_dotenv()
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -83,9 +84,7 @@ STATICFILES_DIRS = [
 ]
 
 # Context processors
-TEMPLATES[0]['OPTIONS']['context_processors'].append(
-    'core.context_processors.site_settings'
-)
+
 
 # Email configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -118,6 +117,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # your custom one
+                'core.context_processors.site_settings',
             ],
         },
     },
