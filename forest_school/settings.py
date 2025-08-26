@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'projects',
     'media',
     'team',
+    'events',
 ]
 
 CKEDITOR_CONFIGS = {
