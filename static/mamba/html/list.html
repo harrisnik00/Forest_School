@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}News & Updates - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="{% url 'core:home' %}">Home</a></li>
+                <li>News</li>
+            </ol>
+            <h2>Latest News & Updates</h2>
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-8 entries">
+                    {% for post in news_posts %}
+                    <article class="entry" data-aos="fade-up">
+                        {% if post.featured_image %}
+                        <div class="entry-img">
+                            <img src="{{ post.featured_image.url }}" alt="{{ post.featured_image_alt }}" class="img-fluid">
+                        </div>
+                        {% endif %}
+
+                        <h2 class="entry-title">
+                            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-calendar-date"></i>
+                                    <time datetime="{{ post.publish_date|date:'Y-m-d' }}">{{ post.publish_date|date:'M d, Y' }}</time>
+                                </li>
+                                {% if post.category %}
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-folder"></i>
+                                    <a href="{% url 'news:category' post.category.slug %}">{{ post.category.name }}</a>
+                                </li>
+                                {% endif %}
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-eye"></i>
+                                    <span>{{ post.view_count }} views</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <p>{{ post.excerpt }}</p>
+                            <div class="read-more">
+                                <a href="{{ post.get_absolute_url }}">Read More</a>
+                            </div>
+                        </div>
+                    </article><!-- End blog entry -->
+                    {% empty %}
+                    <div class="text-center">
+                        <p>No news articles available at the moment.</p>
+                    </div>
+                    {% endfor %}
+
+                    <!-- ======= Pagination ======= -->
+                    {% if is_paginated %}
+                    <div class="blog-pagination">
+                        <ul class="justify-content-center">
+                            {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+                            {% endif %}
+
+                            <li class="active"><span>{{ page_obj.number }}</span></li>
+
+                            {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div><!-- End blog entries list -->
+
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <!-- Categories Widget -->
+                        <h3 class="sidebar-title">Categories</h3>
+                        <div class="sidebar-item categories">
+                            <ul>
+                                <li><a href="{% url 'news:list' %}">All News</a></li>
+                                {% for category in categories %}
+                                <li><a href="{% url 'news:category' category.slug %}">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div><!-- End sidebar categories-->
+
+                        <!-- Featured Posts Widget -->
+                        {% if featured_posts %}
+                        <h3 class="sidebar-title">Featured Posts</h3>
+                        <div class="sidebar-item recent-posts">
+                            {% for post in featured_posts %}
+                            <div class="post-item clearfix">
+                                {% if post.featured_image %}
+                                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                                {% endif %}
+                                <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                                <time datetime="{{ post.publish_date|date:'Y-m-d' }}">{{ post.publish_date|date:'M d, Y' }}</time>
+                            </div>
+                            {% endfor %}
+                        </div><!-- End sidebar recent posts-->
+                        {% endif %}
+                    </div><!-- End sidebar -->
+                </div><!-- End blog sidebar -->
+            </div>
+        </div>
+    </section><!-- End Blog Section -->
+</main>
+{% endblock %}
