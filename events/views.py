@@ -8,7 +8,7 @@ import calendar
 
 class EventListView(ListView):
     model = Event
-    template_name = 'events/list.html'
+    template_name = 'events/list.core'
     context_object_name = 'events'
 
     def get_queryset(self):
@@ -21,7 +21,7 @@ class EventListView(ListView):
 
 class EventDetailView(DetailView):
     model = Event
-    template_name = 'events/detail.html'
+    template_name = 'events/detail.core'
     context_object_name = 'event'
 
     def get_queryset(self):

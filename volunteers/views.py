@@ -7,7 +7,7 @@ from .models import VolunteerApplication
 
 class CareersView(ListView):
     model = VolunteerApplication
-    template_name = 'careers/list.html'
+    template_name = 'careers/list.core'
     context_object_name = 'job_openings'
 
     def get_queryset(self):
@@ -22,7 +22,7 @@ class CareersView(ListView):
 
 class JobDetailView(DetailView):
     model = VolunteerApplication
-    template_name = 'careers/detail.html'
+    template_name = 'careers/detail.core'
     context_object_name = 'job'
 
     def get_queryset(self):

@@ -112,7 +112,7 @@ ROOT_URLCONF = 'forest_school.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,7 +125,8 @@ TEMPLATES = [
         },
     },
 ]
-
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']  # <— top-level /static folder
 WSGI_APPLICATION = 'forest_school.wsgi.application'
 
 

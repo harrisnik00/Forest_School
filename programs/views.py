@@ -7,7 +7,7 @@ from .models import Camp
 
 class CampListView(ListView):
     model = Camp
-    template_name = 'camps/list.html'
+    template_name = 'camps/list.core'
     context_object_name = 'camps'
 
     def get_queryset(self):
@@ -27,5 +27,5 @@ class CampListView(ListView):
 
 class CampDetailView(DetailView):
     model = Camp
-    template_name = 'camps/detail.html'
+    template_name = 'camps/detail.core'
     context_object_name = 'camp'

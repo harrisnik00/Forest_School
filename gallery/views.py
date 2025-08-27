@@ -7,7 +7,7 @@ from .models import Photo, GalleryCategory
 
 class GalleryView(ListView):
     model = Photo
-    template_name = 'gallery/gallery.html'
+    template_name = 'gallery/gallery.core'
     context_object_name = 'photos'
     paginate_by = 24
 

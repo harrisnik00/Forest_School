@@ -9,7 +9,7 @@ from .forms import AdmissionInquiryForm
 
 
 class AdmissionsView(TemplateView):
-    template_name = 'admissions/admissions.html'
+    template_name = 'admissions/admissions.core'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -28,7 +28,7 @@ class AdmissionsView(TemplateView):
 
 class AdmissionInquiryView(CreateView):
     form_class = AdmissionInquiryForm
-    template_name = 'admissions/inquiry.html'
+    template_name = 'admissions/inquiry.core'
     success_url = reverse_lazy('admissions:inquiry_success')
 
     def form_valid(self, form):

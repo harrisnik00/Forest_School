@@ -9,7 +9,7 @@ from .models import SiteSettings, HomePage
 from .forms import ContactForm
 from news.models import NewsPost
 from events.models import Event
-from camps.models import Camp
+from programs.models import Camp
 from django.utils import timezone
 
 
