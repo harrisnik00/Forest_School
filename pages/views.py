@@ -81,7 +81,7 @@ class ContactView(TemplateView):
                 pass  # Email sending failed but form was saved
 
             messages.success(request, 'Thank you for your message! We will get back to you soon.')
-            return redirect('core:contact')
+            return redirect("core:contact")
 
         context = self.get_context_data()
         context['form'] = form
