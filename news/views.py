@@ -8,7 +8,7 @@ from .models import NewsPost, NewsCategory
 
 class NewsListView(ListView):
     model = NewsPost
-    template_name = 'news/list.html'
+    template_name = 'news/list.core'
     context_object_name = 'news_posts'
     paginate_by = 10
 
@@ -32,7 +32,7 @@ class NewsListView(ListView):
 
 class NewsDetailView(DetailView):
     model = NewsPost
-    template_name = 'news/detail.html'
+    template_name = 'news/detail.core'
     context_object_name = 'post'
     slug_field = 'slug'
     slug_url_kwarg = 'slug'

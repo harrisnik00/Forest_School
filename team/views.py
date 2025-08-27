@@ -7,7 +7,7 @@ from .models import TeamMember
 
 class TeamListView(ListView):
     model = TeamMember
-    template_name = 'team/list.html'
+    template_name = 'team/list.core'
     context_object_name = 'team_members'
 
     def get_queryset(self):
@@ -16,7 +16,7 @@ class TeamListView(ListView):
 
 class TeamMemberDetailView(DetailView):
     model = TeamMember
-    template_name = 'team/detail.html'
+    template_name = 'team/detail.core'
     context_object_name = 'member'
 
     def get_queryset(self):
