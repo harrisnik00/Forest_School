@@ -3,8 +3,9 @@ from . import views
 
 app_name = 'pages'
 
-urlpatterns = [
-    path('', views.HomeView.as_view(), name='home'),
-    path('about/', views.AboutView.as_view(), name='about'),
-    path('contact/', views.ContactView.as_view(), name='contact'),
+from django.urls import path
+from .views import contact_submit
+
+urlpatterns += [
+    path("contact-submit/", contact_submit, name="contact_submit"),
 ]
