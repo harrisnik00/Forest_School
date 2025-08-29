@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'gallery',
     'news',
     'programs',
-    'volunteers',
+    'careers',
     'projects',
     'media',
     'team',
