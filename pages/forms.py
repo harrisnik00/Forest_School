@@ -18,3 +18,9 @@ def contact_submit(request):
             )
             messages.success(request, "Thank you! Your message has been sent.")
     return redirect('core:index')
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100, label="Name")
+    email = forms.EmailField(label="Email")
+    subject = forms.CharField(max_length=200, label="Subject")
+    message = forms.CharField(widget=forms.Textarea, label="Message")
