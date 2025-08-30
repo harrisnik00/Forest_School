@@ -1,12 +1,9 @@
 from django.urls import path
-from . import views
+from .views import ContactForm
 
 app_name = 'contact'
 
 urlpatterns = [
-    path('', views.AdmissionsView.as_view(), name='programs'),
-    path('inquiry/', views.AdmissionInquiryView.as_view(), name='inquiry'),
-    path('inquiry/success/', views.TemplateView.as_view(
-        template_name='admissions/inquiry_success.core'
-    ), name='inquiry_success'),
+   path('',"Contact-Form/", ContactForm, name="contact-form" ),
+
 ]
