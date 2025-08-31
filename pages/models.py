@@ -1,60 +1,57 @@
 from django.db import models
-from django.urls import reverse
-from ckeditor.fields import RichTextField
-from django.core.validators import RegexValidator
+from django.utils.text import slugify
 
 
-class SiteSettings(models.Model):
-    """Global site settings and content"""
-    site_name = models.CharField(max_length=200, default="Forest School Cyprus")
-    tagline = models.CharField(max_length=300, default="Where children grow, learn, and thrive in nature.")
-
-    # Contact Information
-    phone = models.CharField(max_length=20, default="+357 9980 3654")
-    email = models.EmailField(default="forestschool.cy@gmail.com")
-    address = models.TextField(default="Agiou Alexandrou Street, Kornos")
-
-    # Social Media
-    facebook_url = models.URLField(blank=True)
-    instagram_url = models.URLField(blank=True)
-    youtube_url = models.URLField(blank=True)
-
-    # About Content
-    vision_text = RichTextField()
-    who_we_are_text = RichTextField()
-    why_choose_us_text = RichTextField()
-
-    # Home Page Features
-    feature_immersive = models.CharField(max_length=200, default="An immersive, nature-based learning experience")
-    feature_outdoor = models.CharField(max_length=200, default="100% outdoor, inquiry-driven, and child-led learning")
-    feature_building = models.CharField(max_length=200,
-                                        default="Building confidence, resilience, and environmental stewardship")
-
-    class Meta:
-        verbose_name = "Site Settings"
-        verbose_name_plural = "Site Settings"
-
-    def __str__(self):
-        return self.site_name
-
-
-class HomePage(models.Model):
-    """Home page specific content"""
-    hero_image = models.ImageField(upload_to='home/', blank=True)
-    hero_title = models.CharField(max_length=200, default="Welcome to Forest School Cyprus")
-    hero_subtitle = models.TextField(default="Where children grow, learn, and thrive in nature.")
-
-    # Statistics or highlights
-    years_operating = models.IntegerField(default=7, help_text="Years in operation")
-    children_served = models.IntegerField(default=200, help_text="Total children served")
-
-    is_active = models.BooleanField(default=True)
+class Page(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField( unique=True)
+    body = models.TextField()
+    banner_image = models.ImageField()
+    published = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = "Home Page Content"
-        verbose_name_plural = "Home Page Content"
+        ordering = ["title"]
 
     def __str__(self):
-        return f"Home Page - {self.hero_title}"
+        return self.title
+
+
+class TeamMember(models.Model):
+    name = models.CharField(max_length=150)
+    role = models.CharField(max_length=150)
+    photo = models.ImageField(upload_to="team/", blank=True, null=True)
+    bio = models.TextField(blank=True)
+    email = models.EmailField(blank=True, null=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["order", "name"]
+
+    def __str__(self):
+        return f"{self.name} – {self.role}"
+
+class FAQ(models.Model):
+    question = models.CharField(max_length=255)
+    answer = models.TextField()
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["order"]
+
+    def __str__(self):
+        return self.question
+
+class AcademicCalendar(models.Model):
+    year = models.CharField(max_length=20, help_text="e.g. 2024–2025")
+    description = models.TextField(blank=True)
+    file = models.FileField(upload_to="calendar/")
+    published = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"Academic Calendar {self.year}"
