@@ -13,6 +13,7 @@ urlpatterns = [
     path('Careers-view', include('careers.urls')),
     path('Contac-Form/', include('contact.urls')),
 path("", include("pages.urls", namespace="pages")),
+path("camps/", include("camps.urls", namespace="camps")),
 
 ]
 
