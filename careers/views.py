@@ -1,20 +1,14 @@
 from django.shortcuts import render, redirect
 from .forms import VolunteerApplicationForm
 
-# Create your views here.
-from django.views.generic import ListView, DetailView
-
-
-
-def  CareersView(request):
+def CareersView(request):
     if request.method == "POST":
-      form = VolunteerApplicationForm(request.POST)
-    if form.is_valid():
+        form = VolunteerApplicationForm(request.POST)
+        if form.is_valid():
             form.save()
             return redirect("contact_thankyou")
-
     else:
-            form = VolunteerApplicationForm()
-            return render(request, "volunteerapplication.html", {"form": form})
+        form = VolunteerApplicationForm()
 
+    return render(request, "volunteerapplication.html", {"form": form})
 
