@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'pages',
-    'news',
     'camps',
     'careers',
     'media',

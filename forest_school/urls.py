@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from careers.views import CareersView
 
 import traceback
 
@@ -10,10 +11,10 @@ import traceback
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Careers-view', include('careers.urls')),
-    path('Contac-Form/', include('contact.urls')),
-path("", include("pages.urls", namespace="pages")),
-path("camps/", include("camps.urls", namespace="camps")),
+    path('', CareersView, name='careers-view'),
+    path('contact/', include('contact.urls')),
+    path("", include("pages.urls", namespace="pages")),
+    path("camps/", include("camps.urls", namespace="camps")),
 
 ]
 
