@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
     'pages',
     'camps',
-    'careers',
+    'volunteer',
     'media',
     'contact',
 ]
