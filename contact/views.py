@@ -9,4 +9,4 @@ def contact_view(request):
             return redirect("contact-thankyou")  # create a thank-you page later
     else:
         form = ContactForm()
-    return render(request, "contact/contact_form.html", {"form": form})
+    return render(request, "core/index.html", {"form": form})

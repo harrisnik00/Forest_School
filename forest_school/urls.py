@@ -12,7 +12,7 @@ import traceback
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', CareersView, name='careers-view'),
-    path('contact/', include('contact.urls')),
+    path("contact/", include("contact.urls", namespace="contact")),
     path("", include("pages.urls", namespace="pages")),
     path("camps/", include("camps.urls", namespace="camps")),
 

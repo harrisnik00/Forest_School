@@ -677,28 +677,29 @@
 
         </div>
 <!--form contact-->
-        <form method="POST">
-          {%csrf_token%}
-          <div class="row gy-4">
-        <div class="col-md-6">
-            {{ form.name }}
-        </div>
-        <div class="col-md-6">
-            {{ form.email }}
-        </div>
-        <div class="col-md-12">
-            {{ form.subject }}
-        </div>
-        <div class="col-md-12">
-            {{ form.message }}
-        </div>
-        <div class="col-md-12 text-center">
-            <button type="submit">Send Message</button>
-        </div>
+      <!--form contact-->
+<form method="POST" action="{% url 'contact:contact' %}">
+  {% csrf_token %}
+  <div class="row gy-4">
+    <div class="col-md-6">
+        {{ contact_form.name }}
     </div>
-      </form><!--end of form-->
-
-  </main>
+    <div class="col-md-6">
+        {{ contact_form.email }}
+    </div>
+    <div class="col-md-12">
+        {{ contact_form.subject }}
+    </div>
+    <div class="col-md-12">
+        {{ contact_form.message }}
+    </div>
+    <div class="col-md-12 text-center">
+        <button type="submit">Send Message</button>
+    </div>
+  </div>
+</form><!--end of form-->
+  <!--end of form-->
+    </main>
 
   <footer id="footer" class="footer light-background">
 
