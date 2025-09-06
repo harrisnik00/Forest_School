@@ -11,11 +11,10 @@ import traceback
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', CareersView, name='volunteer-view'),
     path("contact/", include("contact.urls", namespace="contact")),
     path("", include("pages.urls", namespace="pages")),
     path("camps/", include("camps.urls", namespace="camps")),
-
+    path('', CareersView, name='careers-view'),
 ]
 
 if settings.DEBUG:

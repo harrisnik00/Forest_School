@@ -114,11 +114,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # your custom one
-                'core.context_processors.site_settings',
+
             ],
         },
-    },
+    }
 ]
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']  # <— top-level /static folder
