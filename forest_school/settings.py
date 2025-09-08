@@ -11,19 +11,19 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 from dotenv import load_dotenv
 load_dotenv()
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(BASE_DIR / "env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =os.environ.get('DJANGO_SECRET_KEY')
+import os
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 
 
@@ -75,10 +75,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
 # Context processors
 
@@ -120,7 +116,11 @@ TEMPLATES = [
     }
 ]
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']  # <— top-level /static folder
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static", "assets"),
+]
+
+# <— top-level /static folder
 WSGI_APPLICATION = 'forest_school.wsgi.application'
 
 
@@ -181,7 +181,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
