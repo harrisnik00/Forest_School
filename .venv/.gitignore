@@ -1,0 +1,14 @@
+# created by virtualenv automatically
+# Python
+# Virtual environments
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE files
+.idea/
+
+
