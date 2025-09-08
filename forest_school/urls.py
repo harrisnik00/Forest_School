@@ -4,6 +4,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from volunteer.views import CareersView
+from . import views
 
 import traceback
 
@@ -15,6 +16,7 @@ urlpatterns = [
     path("", include("pages.urls", namespace="pages")),
     path("camps/", include("camps.urls", namespace="camps")),
     path('', CareersView, name='careers-view'),
+    path("", views.home, name="home"),
 ]
 
 if settings.DEBUG:

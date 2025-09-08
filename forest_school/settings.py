@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 from dotenv import load_dotenv
 load_dotenv()
 from decouple import config
@@ -76,10 +75,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
 # Context processors
 
@@ -121,7 +116,11 @@ TEMPLATES = [
     }
 ]
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']  # <— top-level /static folder
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "assets"),
+]
+# <— top-level /static folder
 WSGI_APPLICATION = 'forest_school.wsgi.application'
 
 
@@ -182,7 +181,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
