@@ -117,9 +117,9 @@ TEMPLATES = [
 ]
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "assets"),
+    os.path.join(BASE_DIR, "static", "assets"),
 ]
+
 # <— top-level /static folder
 WSGI_APPLICATION = 'forest_school.wsgi.application'
 
