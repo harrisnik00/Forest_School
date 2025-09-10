@@ -63,7 +63,7 @@
 body {
   color: var(--default-color);
   background-color: var(--background-color);
-  font-family: var(--heading-font), sans-serif;
+  font-family: var(--default-font);
 }
 
 a {
@@ -84,8 +84,7 @@ h4,
 h5,
 h6 {
   color: var(--heading-color);
-  font-family: var(--heading-font), sans-serif;
-
+  font-family: var(--heading-font);
 }
 
 /* Pulsating Play Button
@@ -107,9 +106,9 @@ h6 {
   height: 120px;
   animation-delay: 0s;
   animation: pulsate-play-btn 2s;
-animation-fill-mode: forwards;
+  animation-direction: forwards;
   animation-iteration-count: infinite;
-animation-timing-function: steps(4, end);
+  animation-timing-function: steps;
   opacity: 1;
   border-radius: 50%;
   border: 5px solid color-mix(in srgb, var(--accent-color), transparent 30%);
@@ -299,7 +298,7 @@ animation-timing-function: steps(4, end);
 }
 
 .scrolled .header {
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
 /*--------------------------------------------------------------
@@ -328,7 +327,7 @@ animation-timing-function: steps(4, end);
     color: var(--nav-color);
     padding: 18px 15px;
     font-size: 16px;
-    font-family: var(--heading-font), sans-serif;
+    font-family: var(--nav-font);
     font-weight: 400;
     display: flex;
     align-items: center;
@@ -368,7 +367,7 @@ animation-timing-function: steps(4, end);
     transition: 0.3s;
     border-radius: 4px;
     z-index: 99;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
 
   .navmenu .dropdown ul li {
@@ -440,14 +439,14 @@ animation-timing-function: steps(4, end);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
 
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
     padding: 10px 20px;
-    font-family: var(--heading-font), sans-serif;
+    font-family: var(--nav-font);
     font-size: 17px;
     font-weight: 500;
     display: flex;
@@ -565,7 +564,7 @@ animation-timing-function: steps(4, end);
 
 .footer .footer-about .logo span {
   color: var(--heading-color);
-  font-family: var(--heading-font), sans-serif;
+  font-family: var(--heading-font);
   font-size: 26px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -573,8 +572,7 @@ animation-timing-function: steps(4, end);
 
 .footer .footer-about p {
   font-size: 14px;
-  font-family: var(--heading-font), sans-serif;
-
+  font-family: var(--heading-font);
 }
 
 .footer .social-links a {
@@ -731,8 +729,8 @@ animation-timing-function: steps(4, end);
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
-  transition-delay: 0s !important; /* or 0ms */
-}
+    transition-delay: 0 !important;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -906,7 +904,7 @@ section,
 .hero .btn-get-started {
   color: var(--contrast-color);
   background: var(--accent-color);
-  font-family: var(--heading-font), sans-serif;
+  font-family: var(--heading-font);
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 1px;
@@ -1080,7 +1078,7 @@ section,
 .stats i {
   background-color: var(--surface-color);
   color: var(--accent-color);
-  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
   width: 54px;
   height: 54px;
   font-size: 24px;
@@ -1100,7 +1098,7 @@ section,
   width: 100%;
   position: relative;
   text-align: center;
-  box-shadow: 0 2px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 35px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   z-index: 0;
 }
@@ -1115,7 +1113,7 @@ section,
 .stats .stats-item p {
   padding: 0;
   margin: 0;
-  font-family: var(--heading-font), sans-serif;
+  font-family: var(--heading-font);
   font-size: 16px;
 }
 
@@ -1140,9 +1138,10 @@ section,
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  transition: 0.3s;
   font-size: 32px;
   transition: ease-in-out 0.3s;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0 25px rgba(0, 0, 0, 0.1);
 }
 
 .services .service-item h3 {
@@ -1172,7 +1171,7 @@ section,
 }
 
 .services .service-item:hover .icon {
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0 40px rgba(0, 0, 0, 0.1);
 }
 
 .services .service-item:hover h3 {
@@ -1200,8 +1199,7 @@ section,
   margin-bottom: 5px;
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
-  font-family: var(--heading-font), sans-serif;
-
+  font-family: var(--heading-font);
 }
 
 .portfolio .portfolio-filters li:hover,
@@ -1312,7 +1310,7 @@ section,
   width: 36px;
   height: 36px;
   border-radius: 50%;
-
+  transition: 0.3s;
 }
 
 .team .team-member .social a i {
@@ -1333,7 +1331,7 @@ section,
   background-color: var(--surface-color);
   padding: 30px 15px;
   text-align: center;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   background: var(--surface-color);
   margin: -50px 20px 0 20px;
   position: relative;
@@ -1406,7 +1404,7 @@ section,
 .contact .info-item {
   background-color: var(--surface-color);
   padding: 20px 0 30px 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 .contact .info-item i {
@@ -1423,7 +1421,7 @@ section,
 }
 
 .contact .info-item h3 {
-
+  font-size: 20px;
   font-size: 18px;
   font-weight: 700;
   margin: 10px 0;
@@ -1439,7 +1437,7 @@ section,
   background-color: var(--surface-color);
   padding: 30px;
   margin-top: 22px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 575px) {
@@ -1655,9 +1653,9 @@ section,
 }
 
 .portfolio-details .portfolio-description .testimonial-item p {
-    font-style: italic;
-    margin: 0 0 15px 0;
-    padding: 0;
+  font-style: italic;
+  margin: 0 0 15px 0 0 0;
+  padding: 0;
 }
 
 /*--------------------------------------------------------------

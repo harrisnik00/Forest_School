@@ -111,15 +111,17 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-            ],
-        },
+            ]
+        }
     }
 ]
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static", "assets"),
+    os.path.join(BASE_DIR, "assets"),
 ]
-
+  # Optional
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # <— top-level /static folder
 WSGI_APPLICATION = 'forest_school.wsgi.application'
 
