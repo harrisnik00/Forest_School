@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Starter Page - Mamba Bootstrap Template</title>
+  <title>forest school</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -41,56 +41,33 @@
 
   <header id="header" class="header sticky-top">
 
-    <div class="topbar d-flex align-items-center">
-      <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
-        </div>
-        <div class="social-links d-none d-md-flex align-items-center">
-          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-      </div>
-    </div><!-- End Top Bar -->
+
 
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="{% url 'pages:index' %}" class="logo d-flex align-items-center">
+        <a href="{% url 'pages:index'%}" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">Mamba</h1>
+           <img src="{% static 'img/logo.png'%}" alt="">
+          <h1 class="sitename">Σχολείο του Δάσους</h1>
         </a>
+
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="{% url 'pages:index' %}" class="active">Home</a></li>
+              <li><a href="#about">About</a></li>
+
             <li><a href="#team">Team</a></li>
-            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <li class="dropdown"><a href=""><span>Admissions</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="#">Dropdown 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Dropdown 1</a></li>
-                    <li><a href="#">Deep Dropdown 2</a></li>
-                    <li><a href="#">Deep Dropdown 3</a></li>
-                    <li><a href="#">Deep Dropdown 4</a></li>
-                    <li><a href="#">Deep Dropdown 5</a></li>
+                <li><a href="#">Enroll</a></li>
+                  <li><a href="#">Volunteer</a></li>
+
+
                   </ul>
-                </li>
-                <li><a href="#">Dropdown 2</a></li>
-                <li><a href="#">Dropdown 3</a></li>
-                <li><a href="#">Dropdown 4</a></li>
-              </ul>
-            </li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+              <li><a href="#contact">Contact</a></li>              </ul>
+
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
@@ -103,112 +80,77 @@
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title" data-aos="fade">
-      <div class="heading">
+    <div class="position-relative text-center text-white">
+  <img src="{% static 'img/boat.jpg' %}"
+       alt="Boat"
+       class="img-fluid w-100"
+       style="height:550px; object-fit:cover;">
+
+  <h2 class="position-absolute top-50 start-50 translate-middle
+             fw-bold px-3 py-2 rounded"
+      style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(2px);">
+    Καλοκαιρινό Σχολείο
+  </h2>
+</div>
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1>Starter Page</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <h1>Καλοκαιρινό Σχολείο</h1>
+              <p class="mb-0">ΤΟ ΚΑΛΟΚΑΙΡΙ στο Σχολείο του Δάσους, τα παιδιά θα φανταστούν, θα δημιουργήσουν, θα αγκαλιάσουν τη φύση και τη ζωή, θα παίξουν και θα μάθουν διασκεδάζοντας!
+
+Το Σχολείο του Δάσους, υιοθετώντας αρχές της παιδαγωγικής του δάσους, διοργανώνει κάθε καλοκαίρι, ένα διασκεδαστικό, εκπαιδευτικό πρόγραμμα γεμάτο περιπέτεια, παιχνίδι και εξερεύνηση!</p>
+                <h3>Ημερομηνίες:</h3>
+                <p style ="color: #a8e6a3;">1η Εβδομάδα: 01/07 – 05/07/2024</p>
+                <p style="color: #a8e6a3;">2η Εβδομάδα 08/07 – 12/07/2024</p>
+                <p style="color: #a8e6a3;">3η Εβδομάδα 15/07 – 19/07/2024</p>
+                <p style="color: #a8e6a3;">4η Εβδομάδα 22/07 – 26/07/2024</p>
+                <p style="color: #a8e6a3;">5η Εβδομάδα 29/07 – 02/08/2024</p>
+                <p style="color: #a8e6a3;">6η Εβδομάδα 02/09 – 06/09/2024</p>
             </div>
           </div>
         </div>
-      </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="{% url 'pages:index' %}">Home</a></li>
-            <li class="current">Starter Page</li>
-          </ol>
-        </div>
-      </nav>
+
+
+
+
+          <h3>Σάββατα στο Σχολείο του Δάσους</h3>
+          <h4>Δραστηριότητες του Σχολείου του Δάσους για παιδιά 4-10 ετών</h4>
+          <p>Κάθε Σάββατο μια διαφορετική εμπειρία στο Σχολείο του Δάσους, όπου τα παιδιά έχουν την ευκαιρία για βιωματική και διερευνητική μάθηση στο ύπαιθρο. Η απόλυτη εμπειρία για παιδιά, που συνδυάζει την παιδαγωγική του δάσους με χαρά, παιχνίδι και μάθηση μέσα από διάφορες εργασίες τις οποίες αναλαμβάνουν, σενάρια στα οποία διεισδύουν και ερωτήματα τα οποία καλούνται να διερευνήσουν. Θα αξιοποιήσουμε όλους μας τους υπαίθριους χώρους και τα καταλύματα ανάλογα με τον καιρό και τη δραστηριότητα. Βρέξει – χιονίσει, θα είμαστε εκεί. Φέρτε το σνακ σας και ελάτε με το κατάλληλο ντύσιμο και παπούτσια (αδιάβροχα και γαλότσες, μακρύ παντελόνι, μπλουζάκι και φούτερ) και ετοιμαστείτε για μια αξέχαστη περιπέτεια στο δάσος!</p>
+          <p>Τι πιο όμορφο από ένα πρωινό Σαββάτου γεμάτο εξερεύνηση, ανακάλυψη, δημιουργία και παιχνίδι στη φύση; Δώστε στα παιδιά σας την ευκαιρία να βγουν έξω στη φύση, να παίξουν, να λερωθούν, να εξερευνήσουν και να αγαπήσουν τον κόσμο γύρω τους!
+                Κόστος συμμετοχής: €20/συμμετοχή για κάθε Σάββατο
+                *Έκπτωση για αδέρφια (2ο παιδί 50%)
+                    *Περιορισμένος αριθμός θέσεων</p>
+
     </div><!-- End Page Title -->
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Starter Section</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up">
-        <p>Use this page as a starter for your own custom pages.</p>
-      </div>
-
-    </section><!-- /Starter Section Section -->
 
   </main>
 
   <footer id="footer" class="footer light-background">
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 footer-about">
+        <a href="{% url 'pages:index' %}" class="logo d-flex align-items-center">
+          <span class="sitename">Σχολείο του Δάσους</span>
+        </a>
+        <div class="footer-contact pt-3">
+          <p>Kronos</p>
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="{% url 'pages:index' %}" class="logo d-flex align-items-center">
-            <span class="sitename">Mamba</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
+          <p class="mt-3"><strong>Phone:</strong> <span>99803654</span></p>
+          <p><strong>Email:</strong> <span>forestschool.cy@gmail.com</span></p>
         </div>
+        <div class="social-links d-flex mt-4">
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
         </div>
+      </div> <!-- closes col -->
+    </div> <!-- closes row -->
+  </div> <!-- closes container -->
+</footer>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nobis illum</h4>
-          <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodelas</a></li>
-            <li><a href="#">Flexo</a></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
 
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">Mamba</strong> <span>All Rights Reserved</span></p>
@@ -221,7 +163,6 @@
       </div>
     </div>
 
-  </footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -241,7 +182,6 @@
 
   <!-- Main JS File -->
  <script src="{% static 'js/main.js'%}"></script>
-
-</body>
+ </body>
 
 </html>
