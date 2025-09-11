@@ -10,3 +10,6 @@ def camp_list(request):
 def camp_detail(request, pk):
     camp = get_object_or_404(Camp, pk=pk, is_active=True)
     return render(request, "camps/camp_detail.html", {"camp": camp})
+
+def index(request):
+    return render(request, "index.html")

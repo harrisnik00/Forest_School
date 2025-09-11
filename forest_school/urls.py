@@ -15,8 +15,12 @@ urlpatterns = [
     path("contact/", include("contact.urls", namespace="contact")),
     path("", include("pages.urls", namespace="pages")),
     path("camps/", include("camps.urls", namespace="camps")),
-    path('', CareersView, name='careers-view'),
+
     path("", views.home, name="home"),
+    path("", include("volunteer.urls")),
+    path("", include("camps.urls")),
+    path("volunteer/", include("volunteer.urls")),
+
 ]
 
 if settings.DEBUG:
