@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from .models import Team
 
-# Create your views here.
 from django.shortcuts import render
 
 def home(request):
@@ -14,3 +14,7 @@ def services_details(request):
 
 def camps(request):
     return render(request, "camps.html")
+
+def index(request):
+    team = Team.objects.all()
+    return render(request, "index.html", {"team": team})
