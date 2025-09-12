@@ -55,3 +55,15 @@ class AcademicCalendar(models.Model):
 
     def __str__(self):
         return f"Academic Calendar {self.year}"
+
+class Team(models.Model):
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to="team/")
+    twitter = models.URLField(blank=True, null=True)
+    facebook = models.URLField(blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
+    linkedin = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
