@@ -18,8 +18,7 @@ urlpatterns = [
 
     path("", views.home, name="home"),
     path("", include("volunteer.urls")),
-    path("", include("camps.urls")),
-    path("volunteer/", include("volunteer.urls")),
+
 
 ]
 
